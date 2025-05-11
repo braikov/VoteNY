@@ -62,7 +62,8 @@ class VoteNYHooks {
 		$title = $parser->getTitle();
 		// @phan-suppress-next-line PhanRedundantCondition It's not redundant and the docs are wrong, getTitle can still return null
 		if ( $title ) {
-			$articleID = $title->getArticleID();
+			//$articleID = $title->getArticleID();
+			$articleID = $args['jokeid'] ?? $title->getArticleID();
 			switch ( $type ) {
 				case 0:
 					$vote = new Vote( $articleID, $user );
